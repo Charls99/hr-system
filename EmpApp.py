@@ -31,7 +31,7 @@ table = 'employee'
 # Creating a route that has both GET and POST request methods
 @app.route("/", methods=['GET', 'POST'])
 def index():
-    return render_template('Employee.html')
+    return render_template('Profile.html')
 
 @app.route("/Profile")
 def profile():
