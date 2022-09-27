@@ -1,1 +1,12 @@
-# hr-system
+# Install flask on EC2 
+# Either add "sudo" before all commands or use "sudo su" first
+
+#!/bin/bash
+yum update -y
+yum install git -y
+git clone https://github.com/Charls99/hr-system.git
+cd hr-system
+pip3 install flask
+pip3 install pymysql
+pip3 install boto3
+python3 EmpApp.py
