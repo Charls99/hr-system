@@ -216,6 +216,39 @@ def addAttendance():
     allemp = cursor.fetchall()
     return render_template('Save_Attendance.html', allemp = allemp)
 
+@app.route("/Single_Attendance/<id>")
+def singleAttendance(id):
+    #Using %s to Prevent SQL Injection#
+    search_sql = "SELECT * FROM attendance where id = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (id))
+    attendance_emp = cursor.fetchone()
+
+    search_sql = "SELECT * FROM employee where eid = %s"
+    cursor = db_conn.cursor()
+
+    cursor.execute(search_sql, (attendance_emp[1]))
+    single_emp = cursor.fetchone()
+
+    return render_template('Single_Attendance.html', single_emp = single_emp, attendance_emp = attendance_emp)
+
+@app.route("/Update_Attendance", methods=['GET', 'POST'])
+def updateAttendance():
+    if request.method == 'POST':
+       #add userdata when press submit button#
+       attdate = request.form['attdate']
+       signin = request.form['signin']
+       signout = request.form['signout']
+       place = request.form['place']
+       id = request.form['id']
+    
+       update_sql = "UPDATE attendance SET attdate = %s, signin = %s, signout = %s, place = %s where id = %s"
+       cursor = db_conn.cursor()
+       cursor.execute(update_sql, (attdate, signin, signout, place, id))
+       db_conn.commit()
+    return attendance()
+
 @app.route("/Leave")
 def leave(): 
     

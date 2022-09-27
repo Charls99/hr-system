@@ -30,8 +30,7 @@
                 </a>
                 <ul aria-expanded="false" class="collapse">
                     <li><a href="{{url_for('employee')}}">Employees </a></li>
-                    <li><a href="Disciplinary">Disciplinary </a></li>
-                    <li><a href="Inactive_Employee">Inactive User </a></li>
+                    <li><a href="{{url_for('addEmployee')}}">Add Employees </a></li>
                 </ul>
             </li>
             <li>
@@ -41,7 +40,6 @@
                 <ul aria-expanded="false" class="collapse">
                     <li><a href="{{url_for('attendance')}}">Attendance List </a></li>
                     <li><a href="{{url_for('addAttendance')}}">Add Attendance </a></li>
-                    <li><a href="Attendance_Report">Attendance Report </a></li>
                 </ul>
             </li>
             <li>
@@ -61,7 +59,6 @@
                     <!--<li><a href="Payroll/Salary_Type"> Payroll Type </a></li>-->
                     <li><a href="{{url_for('salaryList')}}"> Payroll List </a></li>
                     <li><a href="{{url_for('generateSalary')}}"> Generate Payslip</a></li>
-                    <li><a href="Payroll/Payslip_Report"> Payslip Report</a></li>
                 </ul>
             </li>
             <li>

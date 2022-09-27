@@ -105,7 +105,7 @@
                                                 <td>{{ attend[3] }}</td>
                                                 <td>{{ attend[4] }}</td>
                                                 <td class="jsgrid-align-center ">
-                                                    <a href="unsaved:///Save_Attendance?A=1014" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light" data-value="Approve"><i class="fa fa-pencil-square-o"></i></a>
+                                                    <a href="{{url_for('singleAttendance', id = attend[0])}}" title="Edit" class="btn btn-sm btn-primary waves-effect waves-light" data-value="Approve"><i class="fa fa-pencil-square-o"></i></a>
                                                 </td>
                                             </tr>
                                             {% endfor %}
