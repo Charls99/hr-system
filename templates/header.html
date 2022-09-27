@@ -1,0 +1,66 @@
+﻿{% macro  header()  %}
+<nav class="navbar top-navbar navbar-expand-md navbar-light">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="">
+            <b>
+                <img src="static/assets/images/hricn.png" alt="DRI" class="DRI-logo" style="width:50px;" />
+            </b>
+            <!-- Logo text --><span>
+                <img src="static/assets/images/hrtag.png" alt="homepage" class="dark-logo" height="60px" width="100px" />
+                <!-- Light Logo text -->
+            </span>
+        </a>
+    </div>
+    <div class="navbar-collapse">
+        <ul class="navbar-nav mr-auto mt-md-0">
+            <!-- This is  -->
+            <li class="nav-item"> <a class="nav-link nav-toggler hidden-md-up text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="mdi mdi-menu"></i></a> </li>
+            <li class="nav-item m-l-10"> <a class="nav-link sidebartoggler hidden-sm-down text-muted waves-effect waves-dark" href="javascript:void(0)"><i class="ti-menu"></i></a> </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-muted text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="mdi mdi-bell"></i>
+                    <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+                </a>
+                <div class="dropdown-menu mailbox scale-up-left">
+                    <ul>
+                        <li>
+                            <div class="drop-title">Notifications</div>
+                        </li>
+                        <li>
+                            <div class="message-center">
+                                <!-- Message -->
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-link text-center" href="javascript:void(0);"> <strong>Check all notifications</strong> <i class="fa fa-angle-right"></i> </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <ul class="navbar-nav my-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="static/assets/images/users/userav-min.png" alt="Genit" class="profile-pic" style="height:40px;width:40px;border-radius:50px" /></a>
+                <div class="dropdown-menu dropdown-menu-right scale-up">
+                    <ul class="dropdown-user">
+                        <li>
+                            <div class="dw-user-box">
+                                <div class="u-img"><img src="static/assets/images/users/userav-min.png" alt="user"></div>
+                                <div class="u-text">
+                                    <h4>Thom Anderson</h4>
+                                    <p class="text-muted">thoma@mail.com</p>
+                                </div>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="employee/view?I=U295MTMzMg=="><i class="ti-user"></i> My Profile</a></li>
+
+                        <li><a href="settings/Settings"><i class="ti-settings"></i> Account Setting</a></li>
+                        <li><a href="login/logout"><i class="fa fa-power-off"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+{% endmacro %}
