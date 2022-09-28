@@ -4679,7 +4679,7 @@ Editableform based on Twitter Bootstrap 3
     //buttons
     $.fn.editableform.buttons = 
       '<button type="submit" class="btn btn-info btn-sm editable-submit">'+
-        '<i class="fa fa-check"></i>'+
+        '<i class="bi bi-check-lg"></i>'+
       '</button>'+
       '<button type="button" class="btn btn-inverse btn-sm editable-cancel">'+
         '<i class="fa fa-close"></i>'+
