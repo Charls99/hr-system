@@ -10,3 +10,13 @@ pip3 install flask
 pip3 install pymysql
 pip3 install boto3
 python3 EmpApp.py
+
+
+HeidiSQL
+------------
+username: hr_user
+password hruser123
+
+endpoint: employee.chns3foo4g0p.us-east-1.rds.amazonaws.com
+
+DNS: AssignmentLB-1232896176.us-east-1.elb.amazonaws.com
