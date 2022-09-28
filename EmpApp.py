@@ -35,10 +35,10 @@ def profile():
 
 @app.route("/Employees")
 def employee():
-    search_sql = "SELECT * FROM employee"
+    search_sql = "SELECT * FROM employee where status = %s"
     cursor = db_conn.cursor()
 
-    cursor.execute(search_sql)
+    cursor.execute(search_sql, ("ACTIVE"))
     allemp = cursor.fetchall()
     return render_template('Employee.html', allemp = allemp)
 
@@ -62,13 +62,14 @@ def addEmployee():
        username = request.form['username']
        email = request.form['email']
        image_url = request.files['image_url']
+       status = "ACTIVE"
 
-       insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
+       insert_sql = "INSERT INTO employee VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"
        cursor = db_conn.cursor()
 
        try:
 
-        cursor.execute(insert_sql, (fname, lname, eid, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email))
+        cursor.execute(insert_sql, (fname, lname, eid, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, username, email, status))
         db_conn.commit()
 
         sid = ""
@@ -170,11 +171,12 @@ def updateEmployee():
        joindate = request.form['joindate']
        leavedate = request.form['leavedate']
        email = request.form['email']
+       status = request.form['status']
        image_url = request.files['image_url']
     
-       update_sql = "UPDATE employee SET fname = %s, lname = %s, dept = %s, deg = %s, role = %s, gender = %s, blood = %s, nid = %s, contact = %s, dob = %s, joindate = %s, leavedate = %s, email = %s where eid = %s"
+       update_sql = "UPDATE employee SET fname = %s, lname = %s, dept = %s, deg = %s, role = %s, gender = %s, blood = %s, nid = %s, contact = %s, dob = %s, joindate = %s, leavedate = %s, email = %s, status = %s where eid = %s"
        cursor = db_conn.cursor()
-       cursor.execute(update_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, email, eid))
+       cursor.execute(update_sql, (fname, lname, dept, deg, role, gender, blood, nid, contact, dob, joindate, leavedate, email, status, eid))
        db_conn.commit()
 
        if image_url.filename != "":

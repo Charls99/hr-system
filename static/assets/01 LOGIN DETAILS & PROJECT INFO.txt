@@ -1,13 +1,8 @@
-**Log on to codeastro.com for more projects!**
+HeidiSQL
+------------
+username: hr_user
+password hruser123
 
-**Database Name: hrsystemci**
+endpoint: employee.chns3foo4g0p.us-east-1.rds.amazonaws.com
 
-**Developed by Nawjesh Soyeb**
-
-**Recommended PHP Version 5.6 or Newer(7.4)**
-
-
-**Admin Login Details** 
-
-Email   : thoma@mail.com
-Password: Password@123
+DNS: AssignmentLB-1232896176.us-east-1.elb.amazonaws.com
