@@ -193,7 +193,7 @@ $(function() {
          selectedBackColor: "#03a9f3",
          onhoverColor: "rgba(0, 0, 0, 0.05)",
           expandIcon: "fa fa-circle",
-          collapseIcon: "fa fa-check-circle-o",
+          collapseIcon: "bi bi-check-lg-circle-o",
           nodeIcon: "ti-user",
           showTags: true,
           data: defaultData
@@ -207,7 +207,7 @@ $(function() {
 
         $('#treeview8').treeview({
           expandIcon: "fa fa-circle",
-          collapseIcon: "fa fa-check-circle-o",
+          collapseIcon: "bi bi-check-lg-circle-o",
           nodeIcon: "ti-user",
           color: "yellow",
           backColor: "purple",
@@ -223,7 +223,7 @@ $(function() {
 
         $('#treeview9').treeview({
           expandIcon: "fa fa-circle",
-          collapseIcon: "fa fa-check-circle-o",
+          collapseIcon: "bi bi-check-lg-circle-o",
           nodeIcon: "glyphicon glyphicon-user",
           color: "yellow",
           backColor: "purple",
