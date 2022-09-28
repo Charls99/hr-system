@@ -148,7 +148,7 @@ def singleEmployee(eid):
     cursor.execute(search_sql, (eid))
     salary_emp = cursor.fetchone()
 
-    user_img = "https://yvonne-test.s3.amazonaws.com/upload/emp-id-{0}_image_file.png".format(eid)
+    user_img = "https://chowwenghoong-bucket.s3.amazonaws.com/upload/emp-id-{0}_image_file.png".format(eid)
 
     return render_template('Single_Employee.html', single_emp = single_emp, salary_emp = salary_emp, user_img = user_img)
 
