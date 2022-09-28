@@ -30,19 +30,8 @@ table = 'employee'
 
 # Creating a route that has both GET and POST request methods
 @app.route("/", methods=['GET', 'POST'])
-def index():
-    return render_template('Profile.html')
-
-@app.route("/Profile")
 def profile():
-    bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-    s3_location = (bucket_location['LocationConstraint'])
-    profile_image_staff_1 = "https://yvonne-test.s3.amazonaws.com/{0}".format('staff_1.jpg')
-    profile_image_staff_2 = "https://yvonne-test.s3.amazonaws.com/{0}".format('staff_2.jpg')
-    profile_image_staff_3 = "https://yvonne-test.s3.amazonaws.com/{0}".format('staff_3.jpg')
-    profiles = [profile_image_staff_1,profile_image_staff_2,profile_image_staff_3]
-    return render_template("Profile.html", profile = profiles)
-
+    return render_template('Profile.html')
 
 @app.route("/Employees")
 def employee():

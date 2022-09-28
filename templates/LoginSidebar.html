@@ -1,13 +1,28 @@
 ﻿{% macro sidebar() %}
 
 <div class="scroll-sidebar">
+    <!-- User profile -->
 
+    <div class="user-profile">
+        <!-- User profile image -->
+        <div class="profile-img">
+            <img src="static/assets/images/users/userav-min.png" alt="user" />
+            <!-- this is blinking heartbit-->
+            <!-- <div class="notify setpos"> <span class="heartbit"></span> <span class="point"></span> </div> -->
+        </div>
+
+        <!-- User profile text-->
+        <div class="profile-text">
+            <h5>Thom Anderson</h5>
+        </div>
+    </div>
+    <!-- End User profile text-->
     <!-- Sidebar navigation-->
     <nav class="sidebar-nav">
         <ul id="sidebarnav">
 
             <li>
-                <a href="{{url_for('profile')}}"><i class="mdi mdi-clipboard"></i><span class="hide-menu">Profile </span></a>
+                <a href="{{url_for('index')}}"><i class="mdi mdi-clipboard"></i><span class="hide-menu">Profile </span></a>
             </li>
             <li>
                 <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
@@ -45,6 +60,9 @@
                     <li><a href="{{url_for('salaryList')}}"> Payroll List </a></li>
                     <li><a href="{{url_for('generateSalary')}}"> Generate Payslip</a></li>
                 </ul>
+            </li>
+            <li>
+                <a href="{{url_for('index')}}"><i class="mdi mdi-power"></i><span class="hide-menu">Logout </span></a>
             </li>
         </ul>
     </nav>
