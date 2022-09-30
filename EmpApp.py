@@ -126,7 +126,7 @@ def addEmployee():
     search_sql = "SELECT eid FROM employee ORDER BY eid DESC"
     cursor = db_conn.cursor()
 
-    cursor.execute(search_sql, ())
+    cursor.execute(search_sql)
     existing_userID = cursor.fetchone()
     eid = 1000
     #detect to search existing user#
@@ -478,8 +478,3 @@ def utility_processor():
         return salary[0]
 
     return dict(getEmpName=getEmpName, getEmpSalary=getEmpSalary)
-
-# Initiating the application
-if __name__ == '__main__':
- # Running the application and leaving the debug mode ON
-    app.run(host='0.0.0.0', port=80, debug=True)
