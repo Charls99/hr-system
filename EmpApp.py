@@ -478,3 +478,8 @@ def utility_processor():
         return salary[0]
 
     return dict(getEmpName=getEmpName, getEmpSalary=getEmpSalary)
+
+# Initiating the application
+if __name__ == '__main__':
+ # Running the application and leaving the debug mode ON
+    app.run(host='0.0.0.0', port=80, debug=True)
