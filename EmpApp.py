@@ -40,6 +40,7 @@ def employee():
 
     cursor.execute(search_sql, ("ACTIVE"))
     allemp = cursor.fetchall()
+    cursor.close()
     return render_template('Employee.html', allemp = allemp)
 
 @app.route("/Add_employee", methods=['GET', 'POST'])
@@ -150,7 +151,7 @@ def singleEmployee(eid):
     salary_emp = cursor.fetchone()
 
     user_img = "https://chowwenghoong-bucket.s3.amazonaws.com/upload/emp-id-{0}_image_file.png".format(eid)
-
+    cursor.close()
     return render_template('Single_Employee.html', single_emp = single_emp, salary_emp = salary_emp, user_img = user_img)
 
 @app.route("/Update_Employee", methods=['GET', 'POST'])
@@ -223,6 +224,7 @@ def attendance():
 
     cursor.execute(search_sql)
     allattend = cursor.fetchall()  
+    cursor.close()
     return render_template('Attendance.html', allattend = allattend)
 
 
@@ -248,6 +250,7 @@ def addAttendance():
 
     cursor.execute(search_sql)
     allemp = cursor.fetchall()
+    cursor.close()
     return render_template('Save_Attendance.html', allemp = allemp)
 
 @app.route("/Single_Attendance/<id>")
@@ -264,7 +267,7 @@ def singleAttendance(id):
 
     cursor.execute(search_sql, (attendance_emp[1]))
     single_emp = cursor.fetchone()
-
+    cursor.close()
     return render_template('Single_Attendance.html', single_emp = single_emp, attendance_emp = attendance_emp)
 
 @app.route("/Update_Attendance", methods=['GET', 'POST'])
@@ -281,6 +284,7 @@ def updateAttendance():
        cursor = db_conn.cursor()
        cursor.execute(update_sql, (attdate, signin, signout, place, id))
        db_conn.commit()
+       cursor.close()
     return attendance()
 
 @app.route("/Leave")
@@ -291,6 +295,7 @@ def leave():
 
     cursor.execute(search_sql)
     allleave = cursor.fetchall()
+    cursor.close()
     if allleave:
         return render_template('Leave.html', allleave = allleave)
 
@@ -313,12 +318,14 @@ def addLeave():
        cursor = db_conn.cursor()
        cursor.execute(insert_sql, (id, em_id, leave_type, start_date, end_date, leaveStatus, reason))
        db_conn.commit()
+       cursor.close()
 
     search_sql = "SELECT * FROM employee"
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql)
     allemp = cursor.fetchall()
+    cursor.close()
     return render_template('Add_Leave.html', allemp = allemp)
 
 @app.route("/ApproveLeave/<id>")
@@ -330,6 +337,7 @@ def approveLeave(id):
     cursor = db_conn.cursor()
     cursor.execute(update_sql, (status, id))
     db_conn.commit()
+    cursor.close()
     return redirect(url_for('leave'))
 
 @app.route("/RejectLeave/<id>")
@@ -341,6 +349,7 @@ def rejectLeave(id):
     cursor = db_conn.cursor()
     cursor.execute(update_sql, (status, id))
     db_conn.commit()
+    cursor.close()
     return redirect(url_for('leave'))
 
 @app.route("/Single_Leave/<id>")
@@ -358,7 +367,7 @@ def singleLeave(id):
 
     cursor.execute(search_sql, (leave_emp[1]))
     single_emp = cursor.fetchone()
-
+    cursor.close()
     return render_template('Single_Leave.html', single_emp = single_emp, leave_emp = leave_emp)
 
 @app.route("/Update_Leave", methods=['GET', 'POST'])
@@ -376,6 +385,7 @@ def updateLeave():
        cursor = db_conn.cursor()
        cursor.execute(update_sql, (leave_type, start_date, end_date, reason, id))
        db_conn.commit()
+       cursor.close()
     return leave()
 
 @app.route("/Salary_List")
@@ -386,6 +396,7 @@ def salaryList():
 
     cursor.execute(search_sql)
     allsalary = cursor.fetchall()
+    cursor.close()
     if allsalary:
         return render_template('Salary_List.html', allsalary = allsalary)
 
@@ -405,6 +416,7 @@ def singleSalary(eid):
 
     cursor.execute(search_sql, (eid))
     salary_emp = cursor.fetchone()
+    cursor.close()
 
     return render_template('Single_Salary.html', single_emp = single_emp, salary_emp = salary_emp)
 
@@ -420,6 +432,7 @@ def addSalary():
        cursor = db_conn.cursor()
        cursor.execute(update_sql, (typeid, total, emid))
        db_conn.commit()
+       cursor.close()
 
     return salaryList()
 
@@ -438,12 +451,14 @@ def generateSalary():
        cursor = db_conn.cursor()
        cursor.execute(insert_sql, (pay_id, emid, month, total_paid, status, paidType))
        db_conn.commit()
+       cursor.close()
 
     search_sql = "SELECT * FROM employee"
     cursor = db_conn.cursor()
 
     cursor.execute(search_sql)
     allemp = cursor.fetchall()
+    cursor.close()
     return render_template('Generate_Salary.html', allemp=allemp)
 
 @app.route("/UpdatePaidStatus/<eid>")
@@ -455,6 +470,7 @@ def updatePaidStatus(eid):
     cursor = db_conn.cursor()
     cursor.execute(update_sql, (status, eid))
     db_conn.commit()
+    cursor.close()
     return redirect(url_for('salaryList'))
 
 
@@ -466,6 +482,7 @@ def utility_processor():
 
         cursor.execute(search_sql, (empid))
         single_emp = cursor.fetchone()
+        cursor.close()
         name = single_emp[0] +" "+ single_emp[1]
         return name
 
@@ -475,6 +492,7 @@ def utility_processor():
 
         cursor.execute(search_sql, (empid))
         salary = cursor.fetchone()
+        cursor.close()
         return salary[0]
 
     return dict(getEmpName=getEmpName, getEmpSalary=getEmpSalary)
